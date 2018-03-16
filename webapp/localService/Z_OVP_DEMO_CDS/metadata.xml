@@ -1,0 +1,96 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_OVP_DEMO_CDS" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="Z_Ovp_DemoType" sap:label="OVP Demo App" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="sales_order_key"/>
+                </Key>
+                <Property Name="sales_order_key" Type="Edm.Guid" Nullable="false" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="sales_order_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order ID" sap:quickinfo="EPM: Sales Order Number"/>
+                <Property Name="created_by" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="created_at" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created At" sap:quickinfo="EPM: Created At"/>
+                <Property Name="changed_by" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="changed_at" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed At" sap:quickinfo="EPM: Changed At"/>
+                <Property Name="note_guid" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="currency_code" Type="Edm.String" MaxLength="5" sap:label="ISO Currency Code" sap:quickinfo="EPM: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="gross_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Total Gross Amount" sap:quickinfo="EPM: Total Gross Amount"/>
+                <Property Name="net_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Total Net Amount" sap:quickinfo="EPM: Total Net Amount"/>
+                <Property Name="tax_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Total Tax Amount" sap:quickinfo="EPM: Total Tax Amount"/>
+                <Property Name="lifecycle_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="SO Lifecycle Status" sap:quickinfo="EPM: Sales Order Lifecycle Status"/>
+                <Property Name="billing_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Confirmation Status" sap:quickinfo="EPM: Sales Order Confirmation Status"/>
+                <Property Name="delivery_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="SO Ordering Status" sap:quickinfo="EPM: Sales Order Ordering Status"/>
+                <Property Name="buyer_guid" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="company_name" Type="Edm.String" MaxLength="80" sap:label="Company Name" sap:quickinfo="EPM: Company Name"/>
+                <NavigationProperty Name="tocustomer" Relationship="Z_OVP_DEMO_CDS.assoc_E2AEB095DE97A089A4575BF9F8EF91C7" FromRole="FromRole_assoc_E2AEB095DE97A089A4575BF9F8EF91C7" ToRole="ToRole_assoc_E2AEB095DE97A089A4575BF9F8EF91C7"/>
+                <NavigationProperty Name="toitems" Relationship="Z_OVP_DEMO_CDS.assoc_90BF685C70914CD8701436C3CFD1B093" FromRole="FromRole_assoc_90BF685C70914CD8701436C3CFD1B093" ToRole="ToRole_assoc_90BF685C70914CD8701436C3CFD1B093"/>
+            </EntityType>
+            <EntityType Name="sepm_cds_business_partnerType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="business_partner_key"/>
+                </Key>
+                <Property Name="business_partner_key" Type="Edm.Guid" Nullable="false" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="business_partner_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Business Partner ID" sap:quickinfo="EPM: Business Partner ID"/>
+                <Property Name="company_name" Type="Edm.String" MaxLength="80" sap:label="Company Name" sap:quickinfo="EPM: Company Name"/>
+                <Property Name="bp_role" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Bus. Part. Role" sap:quickinfo="EPM: Business Partner Role"/>
+                <Property Name="email_address" Type="Edm.String" MaxLength="255" sap:label="Email" sap:quickinfo="EPM: E-Mail Address"/>
+                <Property Name="phone_number" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Phone" sap:quickinfo="EPM: Phone Number"/>
+                <Property Name="fax_number" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Fax" sap:quickinfo="EPM: Fax Number"/>
+                <Property Name="web_address" Type="Edm.String" sap:label="Web Address" sap:quickinfo="EPM: Web Address"/>
+                <Property Name="legal_form" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Legal Form" sap:quickinfo="EPM: Legal Form of Business Partner"/>
+                <Property Name="created_by" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="created_at" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created At" sap:quickinfo="EPM: Created At"/>
+                <Property Name="changed_by" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="changed_at" Type="Edm.DateTimeOffset" Precision="7" sap:label="Changed At" sap:quickinfo="EPM: Changed At"/>
+                <Property Name="currency_code" Type="Edm.String" MaxLength="5" sap:label="ISO Currency Code" sap:quickinfo="EPM: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="address_guid" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+            </EntityType>
+            <EntityType Name="sepm_cds_sales_order_itemType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="sales_order_item_key"/>
+                </Key>
+                <Property Name="sales_order_item_key" Type="Edm.Guid" Nullable="false" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="sales_order_key" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+                <Property Name="so_item_pos" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Item Position" sap:quickinfo="EPM: Sales Order Item Position"/>
+                <Property Name="currency_code" Type="Edm.String" MaxLength="5" sap:label="ISO Currency Code" sap:quickinfo="EPM: Currency Code" sap:semantics="currency-code"/>
+                <Property Name="gross_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Total Gross Amount" sap:quickinfo="EPM: Total Gross Amount"/>
+                <Property Name="net_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Total Net Amount" sap:quickinfo="EPM: Total Net Amount"/>
+                <Property Name="tax_amount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency_code" sap:label="Total Tax Amount" sap:quickinfo="EPM: Total Tax Amount"/>
+                <Property Name="item_atp_status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="SO Item ATP Status" sap:quickinfo="EPM: Sales Order Item ATP Status"/>
+                <Property Name="product_guid" Type="Edm.Guid" sap:label="Generic Node Key" sap:quickinfo="EPM: Generic Node Key"/>
+            </EntityType>
+            <Association Name="assoc_90BF685C70914CD8701436C3CFD1B093" sap:content-version="1">
+                <End Type="Z_OVP_DEMO_CDS.Z_Ovp_DemoType" Multiplicity="1" Role="FromRole_assoc_90BF685C70914CD8701436C3CFD1B093"/>
+                <End Type="Z_OVP_DEMO_CDS.sepm_cds_sales_order_itemType" Multiplicity="*" Role="ToRole_assoc_90BF685C70914CD8701436C3CFD1B093"/>
+            </Association>
+            <Association Name="assoc_E2AEB095DE97A089A4575BF9F8EF91C7" sap:content-version="1">
+                <End Type="Z_OVP_DEMO_CDS.Z_Ovp_DemoType" Multiplicity="1" Role="FromRole_assoc_E2AEB095DE97A089A4575BF9F8EF91C7"/>
+                <End Type="Z_OVP_DEMO_CDS.sepm_cds_business_partnerType" Multiplicity="0..1" Role="ToRole_assoc_E2AEB095DE97A089A4575BF9F8EF91C7"/>
+            </Association>
+            <EntityContainer Name="Z_OVP_DEMO_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Z_Ovp_Demo" EntityType="Z_OVP_DEMO_CDS.Z_Ovp_DemoType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="sepm_cds_business_partner" EntityType="Z_OVP_DEMO_CDS.sepm_cds_business_partnerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="sepm_cds_sales_order_item" EntityType="Z_OVP_DEMO_CDS.sepm_cds_sales_order_itemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_90BF685C70914CD8701436C3CFD1B093" Association="Z_OVP_DEMO_CDS.assoc_90BF685C70914CD8701436C3CFD1B093" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Z_Ovp_Demo" Role="FromRole_assoc_90BF685C70914CD8701436C3CFD1B093"/>
+                    <End EntitySet="sepm_cds_sales_order_item" Role="ToRole_assoc_90BF685C70914CD8701436C3CFD1B093"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E2AEB095DE97A089A4575BF9F8EF91C7" Association="Z_OVP_DEMO_CDS.assoc_E2AEB095DE97A089A4575BF9F8EF91C7" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Z_Ovp_Demo" Role="FromRole_assoc_E2AEB095DE97A089A4575BF9F8EF91C7"/>
+                    <End EntitySet="sepm_cds_business_partner" Role="ToRole_assoc_E2AEB095DE97A089A4575BF9F8EF91C7"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/Z_OVP_DEMO_CDS/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/Z_OVP_DEMO_CDS/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

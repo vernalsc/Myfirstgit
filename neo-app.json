@@ -1,0 +1,44 @@
+{
+  "welcomeFile": "index.html",
+  "routes": [
+    {
+      "path": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z_OVP_DEMO_CDS_VAN',Version='0001')/$value",
+      "target": {
+        "type": "destination",
+        "name": "S44",
+        "entryPath": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z_OVP_DEMO_CDS_VAN',Version='0001')/$value"
+      },
+      "description": "S44"
+    },
+    {
+      "path": "/sap/opu/odata/sap/Z_OVP_DEMO_CDS",
+      "target": {
+        "type": "destination",
+        "name": "S44",
+        "entryPath": "/sap/opu/odata/sap/Z_OVP_DEMO_CDS"
+      },
+      "description": "S44"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "preferLocal": true,
+        "entryPath": "/resources",
+        "version": "1.44.12"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.44.12"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ]
+}

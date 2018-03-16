@@ -1,0 +1,52 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "webapp",
+    "excludedFolders": [
+      "test"
+    ],
+    "buildRequired": true
+  },
+  "generation": [
+    {
+      "templateId": "OVP.smartovptemplate",
+      "templateVersion": "1.41.1",
+      "dateTimeStamp": "Tue, 13 Mar 2018 09:27:53 GMT"
+    },
+    {
+      "templateId": "OVP.cardtemplate",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Tue, 13 Mar 2018 09:34:35 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/Z_OVP_DEMO_CDS",
+    "metadataFilePath": "",
+    "loadJSONFiles": true,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "basevalidator": {
+    "services": {
+      "xml": "fioriXmlAnalysis",
+      "js": "fioriJsValidator"
+    }
+  },
+  "codeCheckingTriggers": {
+    "notifyBeforePush": true,
+    "notifyBeforePushLevel": "Error",
+    "blockPush": false,
+    "blockPushLevel": "Error"
+  }
+}

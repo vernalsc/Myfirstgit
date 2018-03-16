@@ -1,0 +1,104 @@
+{
+	"_version": "1.5.0",
+	"start_url": "start.html",
+	"sap.app": {
+		"id": "zoverviewpage",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.2.2"
+		},
+		"title": "{{app_title}}",
+		"description": "{{app_description}}",
+		"ach": "sap",
+		"resources": "resources.json",
+		"dataSources": {
+			"Z_OVP_DEMO_CDS": {
+				"uri": "/sap/opu/odata/sap/Z_OVP_DEMO_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"Z_OVP_DEMO_CDS_VAN"
+					],
+					"localUri": "localService/Z_OVP_DEMO_CDS/metadata.xml"
+				}
+			},
+			"Z_OVP_DEMO_CDS_VAN": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='Z_OVP_DEMO_CDS_VAN',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "localService/Z_OVP_DEMO_CDS/Z_OVP_DEMO_CDS_VAN.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "OVP.cardtemplate",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.32.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {},
+				"sap.ovp": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"Z_OVP_DEMO_CDS": {
+				"dataSource": "Z_OVP_DEMO_CDS",
+				"settings": {}
+			}
+		},
+		"extends": {
+			"extensions": {}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ovp": {
+		"globalFilterModel": "Z_OVP_DEMO_CDS",
+		"globalFilterEntityType": "",
+		"cards": {
+			"zoverviewpage_card00": {
+				"model": "Z_OVP_DEMO_CDS",
+				"template": "sap.ovp.cards.list",
+				"settings": {
+					"title": "{{zoverviewpage_card00_title}}",
+					"subTitle": "{{zoverviewpage_card00_subTitle}}",
+					"entitySet": "sepm_cds_business_partner",
+					"addODataSelect": "false",
+					"annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+				}
+			}
+		}
+	}
+}

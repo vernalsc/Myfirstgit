@@ -1,0 +1,9 @@
+[{
+	"business_partner_key": "1234",
+	"business_partner_id": "Test1234",
+	"company_name": "IBM"
+}, {
+	"business_partner_key": "1235",
+	"business_partner_id": "Test1235",
+	"company_name": "Itelligence"
+}]
