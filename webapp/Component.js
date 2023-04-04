@@ -5,6 +5,7 @@
 	/**
 	 * @fileOverview Application component to display information on entities from the GWSAMPLE_BASIC
 	 *   OData service.
+	 * Git version
 	 * @version @version@
 	 */
 	jQuery.sap.declare("zoverviewpage.Component");
